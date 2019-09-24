@@ -6,7 +6,7 @@ function __autoload($classname) {
     // require_once('./Classes/character.php');
     // require_once('./Classes/Hero.php');
     // require_once('./Classes/Mechant.php');
-    $hero = new Hero("mario",50, 10, "kabouss");
+    $hero = new Hero("mario",50, 10, "kabouss", "Bouclier magique");
     $mechant = new Mechant("Bowser",50, 10, "chefra");
     //var_dump($hero);
     while ($hero->getIsalive() === 1 && $mechant->getIsalive() === 1) {
@@ -14,13 +14,15 @@ function __autoload($classname) {
         if (rand(1 , 100) === 50) {
           $hero->Fatality($mechant);
 
-        }else{
+        } elseif ($hero->getHealth() < 5 && $hero->getHealth() >= 1) {
+          $hero->Bouclier($mechant);
+        } else{
 
           $hero->hit($mechant);
         }
       }
       if ($mechant->getHealth() >0) {
-        if ($mechant->getMana() >= 8 && $mechant->getHealth() >= 5)  {
+        if ((rand(1 , 100) === 50) && ($mechant->getMana() >= 8 && $mechant->getHealth() >= 5))  {
           $mechant->Fatality($hero);
         }elseif ($mechant->getMana() >= 5) {
           $mechant->fireball($hero);
@@ -44,6 +46,6 @@ function __autoload($classname) {
 
 
 //attribut statique
-     echo Character::blabla();
+     // echo Character::blabla();
 
     }
