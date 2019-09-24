@@ -109,6 +109,22 @@ class Character
     }
 
 
+    public function Fatality($target)
+      {
+         $spentMana = 8;
+         $spentLife = 5;
+         if($this->mana >= 8 && $this->health > 5) {
+           $dmg = mt_rand(5, 10);
+           echo "$this->name Utilise l'attaque Fatality  $target->name<br>";
+           $target->takeDamage($dmg);
+           $this->mana -= $spentMana;
+           $this->health -= $spentLife;
+         } else {
+           echo "$this->name est épuisé $target->name<br>";
+         }
+      }
+
+
 
 
 
