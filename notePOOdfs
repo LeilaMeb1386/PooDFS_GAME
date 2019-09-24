@@ -17,3 +17,30 @@ export APACHE_RUN_USER=vagrant
 export APACHE_RUN_GROUP=vagrant
 
 sudo apt install php-xdebug
+
+$this represente l'obejt en cours
+seft represente la classe en cours
+
+//attribut et methode statique
+//methode statqiue
+public static function speak()
+{
+ return "je suis une fonction statique et je peux etre appeléee uniquement par une classe et non pas un objet "
+}
+
+dans l'index
+echo Character::speak();
+
+//attribut statiques
+appartient a la classe et non a l'objet
+private statique $message ="je suis un texte provenant d'un attribut statique"
+
+//dans l'index
+public static function speak(): ?string
+{
+return self::$message;
+}
+
+//l'heritage en objet
+protected les classes filles pourront avoir accès
+private les classe ne pourront pas avoir accès

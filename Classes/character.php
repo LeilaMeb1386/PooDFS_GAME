@@ -1,11 +1,12 @@
 <?php
 class Character
 {
-    private $name;
-    private $health;
-    private $mana;
-    private $weapon;
-    public $isAlive = 1;
+    protected $name;
+    protected $health;
+    protected $mana;
+    protected $weapon;
+    protected $isAlive = 1;
+    private static $myvariable = "Je teste l'attribut statique";
 
     //getters
 
@@ -88,41 +89,46 @@ class Character
       $target->takeDamage($dmg);
     }
 
-    public function generateMana()
-    {
-      $mana = mt_rand(2, 10);
-      echo "$this->name regenere $mana PDM<br>";
-      $this->mana += $mana;
-    }
+    // public function generateMana()
+    // {
+    //   $mana = mt_rand(2, 10);
+    //   echo "$this->name regenere $mana PDM<br>";
+    //   $this->mana += $mana;
+    // }
 
-    public function fireball($target)
-    {
-      $spentMana = 5;
-      if(($this->mana - $spentMana) >= 0) {
-        $dmg = mt_rand(1, 10);
-        echo "$this->name lance une boule de feu sur $target->name<br>";
-        $target->takeDamage($dmg);
-        $this->mana -= $spentMana;
-      } else {
-        echo "$this->name echoue à lancer une boule de feu sur $target->name<br>";
-      }
-    }
+    // public function fireball($target)
+    // {
+    //   $spentMana = 5;
+    //   if(($this->mana - $spentMana) >= 0) {
+    //     $dmg = mt_rand(1, 10);
+    //     echo "$this->name Lance des petits bowsser en feu  sur $target->name<br>";
+    //     $target->takeDamage($dmg);
+    //     $this->mana -= $spentMana;
+    //   } else {
+    //     echo "$this->name echoue à lancer une boule de feu sur $target->name<br>";
+    //   }
+    // }
 
 
     public function Fatality($target)
-      {
-         $spentMana = 8;
-         $spentLife = 5;
-         if($this->mana >= 8 && $this->health > 5) {
-           $dmg = mt_rand(5, 10);
-           echo "$this->name Utilise l'attaque Fatality  $target->name<br>";
-           $target->takeDamage($dmg);
-           $this->mana -= $spentMana;
-           $this->health -= $spentLife;
-         } else {
-           echo "$this->name est épuisé $target->name<br>";
-         }
-      }
+    {
+       $spentMana = 8;
+       $spentLife = 5;
+       if($this->mana >= 8 && $this->health > 5) {
+         $dmg = mt_rand(5, 10);
+         echo "$this->name Utilise l'attaque Fatality  $target->name<br>";
+         $target->takeDamage($dmg);
+         $this->mana -= $spentMana;
+         $this->health -= $spentLife;
+       } else {
+         echo "$this->name est épuisé $target->name<br>";
+       }
+    }
+
+    public static function blabla()
+    {
+      return self::$myvariable;
+    }
 
 
 
