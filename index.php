@@ -1,6 +1,6 @@
 <?php
 function __autoload($classname) {
-  $filename = "./Crud/". $classname .".php";
+  $filename = "./Classes/". $classname .".php";
   require_once($filename);
 }
 $personnages = Personnages::getAllPersonnage();
@@ -19,8 +19,6 @@ $roles = Roles::getAllRoles();
   <body>
     <header>
       <ul>
-        <li><a href="#">Modifier un personnage</a></li>
-        <li>Supprimer un personnage</li>
         <li><a href= "PageRole.php">Liste des roles</a></li>
       </ul>
     </header>
@@ -77,7 +75,7 @@ $roles = Roles::getAllRoles();
             	<input type='submit' value='Ajouter' title='AJOUTER' />
           </form>
 
-    <h1>Supprimer un personnage</h1>
+    <h1>Supprimer ou modifier un personnage</h1>
 
       <table>
      <tr>
@@ -120,8 +118,8 @@ $roles = Roles::getAllRoles();
              ?>
            </select>
            </td>
-           <td><button type="submit" name="update"> U </button></td>
-           <td><button type="submit" name=delete> X </button></td>
+           <td><button type="submit" name="update"> Update </button></td>
+           <td><button type="submit" name=delete> Delete </button></td>
          </tr>
 
          <?php

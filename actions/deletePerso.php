@@ -1,7 +1,7 @@
 <?php
 //update et supprimer personnage
 
-require_once("../Crud/Personnages.php");
+require_once("../Classes/Personnages.php");
 if(isset($_POST['update']))
   Personnages::UpdatePersonnage($_POST['name'], $_POST['health'], $_POST['power'], $_POST['weapon'], $_POST['role_id'], $_POST['id']);
 

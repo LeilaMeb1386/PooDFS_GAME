@@ -1,6 +1,6 @@
 <?php
 function __autoload($classname) {
-  $filename = "./Crud/". $classname .".php";
+  $filename = "./Classes/". $classname .".php";
   require_once($filename);
 }
 
@@ -20,8 +20,6 @@ $roles = Roles::getAllRoles();
     <header>
       <ul>
         <li><a href="index.php">Personnages</a></li>
-        <li>Supprimer un role</li>
-        <li>Modifier un role</li>
       </ul>
     </header>
     <main>
@@ -43,13 +41,42 @@ $roles = Roles::getAllRoles();
 <h1>Inserer un nouveau role</h1>
    <form action="./actions/insertRole.php" method="post">
 
+        <label >ROLE</label>
+        <input type='text'  name='role' title='role' />
 
-                <label >ROLE</label>
-                <input type='text'  name='role' title='role' />
+    	 <input type='submit' value='Ajouter' title='AJOUTER' />
+  </form>
 
 
-            	<input type='submit' value='Ajouter' title='AJOUTER' />
-          </form>
+          <h1>Supprimer ou modifier un role</h1>
+
+            <table>
+           <tr>
+             <th>ROLE</th>
+
+           </tr>
+           <?php
+             foreach ($roles as $key => $value) {
+             ?>
+               <form action='./actions/deleteRole.php' method='POST'>
+               <input type='hidden' name='id' value="<?=$value['id']?>">
+               <tr>
+                 <td>
+                   <input type="text" name="role" value="<?= $value['role']?>">
+                 </td>
+
+                 </td>
+                 <td><button type="submit" name="update"> Update </button></td>
+                 <td><button type="submit" name=delete> Delete </button></td>
+               </tr>
+
+               <?php
+             }
+           ?>
+
+          </table>
+
+        </form>
 </maain>
   </body>
 </html>
