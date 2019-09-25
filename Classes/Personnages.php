@@ -58,14 +58,34 @@ Class Personnages extends DataBase
 
  //constructeur
 
- public function  __construct(string  $name, int $health, int $power, string $weapon, int $role_id)
-   {
-     $this->setName($name);
-     $this->setHealth($health);
-     $this->setPower($power);
-     $this->setWeapon($weapon);
-     $this->setRole_id($role_id);
-   }
+ // public function  __construct(string  $name, int $health, int $power, string $weapon, int $role_id)
+ //   {
+ //     $this->setName($name);
+ //     $this->setHealth($health);
+ //     $this->setPower($power);
+ //     $this->setWeapon($weapon);
+ //     $this->setRole_id($role_id);
+ //   }
+
+   //hydratation
+   public function __construct(array $value)
+    {
+        if(!empty($valeurs))
+            $this->hydrate($valeurs);
+    }
+
+    public function hydrate($donnees)
+        {
+            foreach ($donnees as $attribut => $valeur)
+            {
+            $methode = 'set'.str_replace(' ', '', ucwords(str_replace('_', ' ', $attribut)));
+
+            if (is_callable(array($this, $methode)))
+            {
+                $this->$methode($valeur);
+            }
+            }
+        }
 
    public static function getAllPersonnage()
        {
