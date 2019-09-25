@@ -14,69 +14,78 @@ $roles = Roles::getAllRoles();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css">
     <title></title>
+
   </head>
   <body>
     <header>
       <ul>
-        <li><a href="index.php">Personnages</a></li>
+        <li><a href="index.php">Voir la listes des Personnages</a></li>
       </ul>
     </header>
     <main>
-  <h1>Roles</h1>
-  <table>
- <tr>
-   <th>ROLE</th>
+     <div class="liste">
+      <h1>Roles</h1>
+      <table class="t">
+     <tr>
+       <th class="ro">ROLE</th>
 
- </tr>
- <?php
-   foreach ($roles as $key => $value) {
-     $tr = "<tr>";
-     $tr .= "<td>" . $value['role'] . "</td>";
-     $tr .= "</tr>";
-     echo $tr;
-   }
- ?>
-</table>
-<h1>Inserer un nouveau role</h1>
-   <form action="./actions/insertRole.php" method="post">
+     </tr>
+     <?php
+       foreach ($roles as $key => $value) {
+         $tr = "<tr>";
+         $tr .= "<td>" . $value['role'] . "</td>";
+         $tr .= "</tr>";
+         echo $tr;
+       }
+     ?>
+    </table>
+  </div>
 
-        <label >ROLE</label>
-        <input type='text'  name='role' title='role' />
+  <div class="Insert">
+    <h1>Inserer un nouveau role</h1>
+       <form action="./actions/insertRole.php" method="post">
 
-    	 <input type='submit' value='Ajouter' title='AJOUTER' />
-  </form>
+            <label >ROLE</label>
+            <input type='text'  name='role' title='role' />
+
+        	 <input type='submit' value='Ajouter' title='AJOUTER' />
+      </form>
+    </div>
 
 
-          <h1>Supprimer ou modifier un role</h1>
+              <h1>Supprimer ou modifier un role</h1>
+              <div class="update">
 
-            <table>
-           <tr>
-             <th>ROLE</th>
-
-           </tr>
-           <?php
-             foreach ($roles as $key => $value) {
-             ?>
-               <form action='./actions/deleteRole.php' method='POST'>
-               <input type='hidden' name='id' value="<?=$value['id']?>">
+                <table>
                <tr>
-                 <td>
-                   <input type="text" name="role" value="<?= $value['role']?>">
-                 </td>
+                 <th>ROLE</th>
 
-                 </td>
-                 <td><button type="submit" name="update"> Update </button></td>
-                 <td><button type="submit" name=delete> Delete </button></td>
                </tr>
-
                <?php
-             }
-           ?>
+                 foreach ($roles as $key => $value) {
+                 ?>
+                   <form action='./actions/deleteRole.php' method='POST'>
+                   <input type='hidden' name='id' value="<?=$value['id']?>">
+                   <tr>
+                     <td>
+                       <input type="text" name="role" value="<?= $value['role']?>">
+                     </td>
 
-          </table>
+                     </td>
+                     <td><button type="submit" name="update"> Update </button></td>
+                     <td><button type="submit" name=delete> Delete </button></td>
+                   </tr>
 
-        </form>
+                   <?php
+                 }
+               ?>
+
+              </table>
+
+            </form>
+          </div>
 </maain>
   </body>
 </html>

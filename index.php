@@ -14,6 +14,7 @@ $roles = Roles::getAllRoles();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+      <link rel="stylesheet" href="./css/style.css">
     <title></title>
   </head>
   <body>
@@ -23,8 +24,9 @@ $roles = Roles::getAllRoles();
       </ul>
     </header>
     <main>
+      <div class="liste">
   <h1>Liste des personnages</h1>
-  <table>
+  <table class="t">
  <tr>
    <th>NAME</th>
    <th>HEALTH</th>
@@ -45,6 +47,9 @@ $roles = Roles::getAllRoles();
    }
  ?>
 </table>
+</div>
+
+<div class="Insert">
 <h1>Inserer un nouveau joueur</h1>
    <form action="./actions/InsertPerso.php" method="post">
 
@@ -74,10 +79,11 @@ $roles = Roles::getAllRoles();
 
             	<input type='submit' value='Ajouter' title='AJOUTER' />
           </form>
+    </div>
 
     <h1>Supprimer ou modifier un personnage</h1>
-
-      <table>
+  <div class="update">
+      <table class="table table-dark">
      <tr>
        <th>NAME</th>
        <th>HEALTH</th>
@@ -130,7 +136,7 @@ $roles = Roles::getAllRoles();
 
   </form>
 
-
+</div>
 
 
 </maain>
