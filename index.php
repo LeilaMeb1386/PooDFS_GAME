@@ -1,51 +1,73 @@
 <?php
 function __autoload($classname) {
-  $filename = "./Classes/". $classname .".php";
+  $filename = "./Crud/". $classname .".php";
   require_once($filename);
 }
-    // require_once('./Classes/character.php');
-    // require_once('./Classes/Hero.php');
-    // require_once('./Classes/Mechant.php');
-    $hero = new Hero("mario",50, 10, "kabouss", "Bouclier magique");
-    $mechant = new Mechant("Bowser",50, 10, "chefra");
-    //var_dump($hero);
-    while ($hero->getIsalive() === 1 && $mechant->getIsalive() === 1) {
-      if ($hero->getHealth() >0){
-        if (rand(1 , 100) === 50) {
-          $hero->Fatality($mechant);
+$personnages = Personnages::getAllPersonnage();
+$roles = Roles::getAllRoles();
 
-        } elseif ($hero->getHealth() < 5 && $hero->getHealth() >= 1) {
-          $hero->Bouclier($mechant);
-        } else{
+ // var_dump(Personnages::getAllPersonnage());
+ // var_dump(Roles::getAllRoles());
+ ?>
 
-          $hero->hit($mechant);
-        }
-      }
-      if ($mechant->getHealth() >0) {
-        if ((rand(1 , 100) === 50) && ($mechant->getMana() >= 8 && $mechant->getHealth() >= 5))  {
-          $mechant->Fatality($hero);
-        }elseif ($mechant->getMana() >= 5) {
-          $mechant->fireball($hero);
-
-
-        }  else{
-            $mechant->hit($hero);
-          }
-      }
-
-
-
-
-    if ($hero->getHealth() <= 0) {
-       echo $hero->getName() . " est mort <br>";
-     } else if($mechant->getHealth() <= 0) {
-
-       echo $mechant->getName() . " est mort <br>";
-
-     }
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <h1>Liste des personnages</h1>
+  <table>
+ <tr>
+   <th>NAME</th>
+   <th>HEALTH</th>
+   <th>POWER</th>
+   <th>WEAPON</th>
+   <th>ROLE</th>
+ </tr>
+ <?php
+   foreach ($personnages as $key => $value) {
+     $tr = "<tr>";
+     $tr .= "<td>" . $value['name'] . "</td>";
+     $tr .= "<td>" . $value['health'] . "</td>";
+     $tr .= "<td>" . $value['power'] . "</td>";
+     $tr .= "<td>" . $value['weapon'] . "</td>";
+     $tr .= "<td>" . $value['role_id'] . "</td>";
+     $tr .= "</tr>";
+     echo $tr;
+   }
+ ?>
+</table>
+<h1>Inserer un nouveau joueur</h1>
+   <form action="InsertPerso.php" method="post">
 
 
-//attribut statique
-     // echo Character::blabla();
+                <label >NAME</label>
+                <input type='text'  name='name' title='name' />
 
-    }
+                <label >HEALTH</label>
+                <input type='number'  name='health' title='health' />
+
+                <label >POWER</label>
+                <input type='number'  name='power' title='power' />
+
+                <label >WEAPON</label>
+                <input type='text'  name='weapon' title='weapon' />
+
+                <label >ROLE</label>
+                <select class="" name="role_id">
+                <?php
+                  foreach ($roles as $role) {
+                    $id = $roles['id'];
+                    $role = $role['role'];
+                    echo "<option value='$id'>$role</option>";
+                  }
+                ?>
+              </select>
+
+            	<input type='submit' value='Ajouter' title='AJOUTER' />
+          </form>
+
+  </body>
+</html>

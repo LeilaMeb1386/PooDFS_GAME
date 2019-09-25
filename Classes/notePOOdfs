@@ -44,3 +44,31 @@ return self::$message;
 //l'heritage en objet
 protected les classes filles pourront avoir accès
 private les classe ne pourront pas avoir accès
+
+
+
+
+
+//tp a faire
+Lien : codepile.net/pile/dfs16poo
+
+Vous allez devoir créer une application qui devra utiliser la POO au maximum.
+
+Elle devra permettre de C.R.U.D des personnages, et la structure du code vous sera propre.
+Vous pourrez créer plusieurs fichiers pour gérer vos différentes actions, ou tout regrouper dans une seule classe et différentes méthodes (à vous de juger quelle méthode est la plus pertinente)
+
+Vous devrez donc faire la meilleure utilisation de PHP ainsi que de la P.O.O, et cela passe bien évidemment par la création d'objet et par l'utilisation de méthodes statiques.
+
+Le reste de la validation déprendra de votre créativité et ce que vous ajouterez de manière pertinente à votre projet.
+
+
+Certains critères seront très surveillés, comme la propreté de votre code (cela passe également par le typehint), la pertinence des données traitées (avec vérification de l'existence de cette donnée, son type, etc)
+
+L'organisation de votre code (fichiers, dossiers) sera évidemment important.
+
+
+
+
+
+
+NB : Une notion ou deux viendront s'ajouter durant la matinée de mercredi.
