@@ -1,0 +1,44 @@
+-- Adminer 4.7.3 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+CREATE DATABASE `PooCharacters` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `PooCharacters`;
+
+DROP TABLE IF EXISTS `Personnages`;
+CREATE TABLE `Personnages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `health` int(11) NOT NULL,
+  `power` int(11) NOT NULL,
+  `weapon` text NOT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `role_id` (`role_id`),
+  CONSTRAINT `Personnages_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `Roles` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Personnages` (`id`, `name`, `health`, `power`, `weapon`, `role_id`) VALUES
+(1,	'Baltazars',	50,	60,	'épée',	1),
+(2,	'Merlin',	30,	40,	'épée enchantée',	1),
+(3,	'le ténébreux',	50,	60,	'flèche empoisonnée ',	2),
+(7,	'Leila',	200,	100,	'arc en ciel',	3),
+(9,	'Sara',	1004,	1011,	'épéeuil',	3);
+
+DROP TABLE IF EXISTS `Roles`;
+CREATE TABLE `Roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Roles` (`id`, `role`) VALUES
+(1,	'Mage'),
+(2,	'Warrior'),
+(3,	'Archer'),
+(6,	'Sorcier');
+
+-- 2019-09-25 14:57:23

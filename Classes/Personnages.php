@@ -68,7 +68,7 @@ Class Personnages extends DataBase
  //   }
 
    //hydratation
-   public function __construct(array $value)
+   public function __construct($valeurs = array())
     {
         if(!empty($valeurs))
             $this->hydrate($valeurs);
