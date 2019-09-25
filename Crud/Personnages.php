@@ -1,5 +1,5 @@
 <?php
-
+require_once('DataBase.php');
 Class Personnages extends DataBase
 {
   protected $name;
@@ -81,7 +81,6 @@ Class Personnages extends DataBase
        }
 
     public static function addPersonnage(string $name, int $health, int $power, string $weapon, int $role_id){
-
         $connec = new PDO(self::DB, self::DBuser, self::DBpw, self::utf8);
         $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $request = $connec->prepare("INSERT INTO Personnages(name, health, power, weapon, role_id) VALUES (:name, :health, :power, :weapon, :role_id);");
@@ -103,20 +102,18 @@ Class Personnages extends DataBase
         $request->execute();
       }
 
-    public static function UpdatePersonnage(int $id, string $name, int $health, int $power, string $weapon, int $role_id)
+    public static function UpdatePersonnage(string $name, int $health, int $power, string $weapon, int $role_id, int $id)
     {
       $connec = new PDO(self::DB, self::DBuser, self::DBpw, self::utf8);
       $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $request = $connec->prepare("UPDATE Personnages SET name = :name, health = :health, power = :power, weapon = :weapon, role_id = :role_id, WHERE id = :id ;");
-      $request->bindParam(':id', $id);
+      $request = $connec->prepare("UPDATE Personnages SET name = :name, health = :health, power = :power, weapon = :weapon, role_id = :role_id WHERE id = :id ");
       $request->bindParam(':name', $name);
       $request->bindParam(':health', $health);
       $request->bindParam(':power', $power);
       $request->bindParam(':weapon', $weapon);
       $request->bindParam(':role_id', $role_id);
+      $request->bindParam(':id', $id);
       $request->execute();
-
-
     }
 
 

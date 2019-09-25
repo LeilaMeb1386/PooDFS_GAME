@@ -1,6 +1,6 @@
 <?php
 
-
+require_once('DataBase.php');
 Class Roles extends DataBase
 {
   protected $role;
