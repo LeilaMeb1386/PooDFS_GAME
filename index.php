@@ -6,6 +6,9 @@ function __autoload($classname) {
 $personnages = Personnages::getAllPersonnage();
 $roles = Roles::getAllRoles();
 
+$perso = new Personnages(['name' => 'Ange', 'health' => '200', 'power' => '200', 'weapon' => '', 'role_id' => '5']);
+//var_dump($perso);die;
+
  // var_dump(Personnages::getAllPersonnage());
  // var_dump(Roles::getAllRoles());
  ?>

@@ -49,7 +49,7 @@ Class Personnages extends DataBase
 
   public function setWeapon($weapon)
     {
-      $this->weaper = $weaper;
+      $this->weaper = $weapon;
     }
   public function setRole_id($role_id)
     {
@@ -87,18 +87,18 @@ Class Personnages extends DataBase
             }
         }
 
-   public static function getAllPersonnage()
-       {
+     public static function getAllPersonnage()
+         {
 
-         $connec = new PDO(self::DB, self::DBuser, self::DBpw, self::utf8);
-         $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         $request = $connec->prepare("select * from Personnages");
-         $request->execute();
-         $result = $request->fetchAll();
+           $connec = new PDO(self::DB, self::DBuser, self::DBpw, self::utf8);
+           $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           $request = $connec->prepare("select * from Personnages");
+           $request->execute();
+           $result = $request->fetchAll();
 
-         return $result;
+           return $result;
 
-       }
+         }
 
     public static function addPersonnage(string $name, int $health, int $power, string $weapon, int $role_id){
         $connec = new PDO(self::DB, self::DBuser, self::DBpw, self::utf8);
