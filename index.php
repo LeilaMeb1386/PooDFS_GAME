@@ -6,11 +6,19 @@ function __autoload($classname) {
 $personnages = Personnages::getAllPersonnage();
 $roles = Roles::getAllRoles();
 
+
+//hydratation
+//hydrater un objet revient à lui fournir des données correspondant à ses attributs pour qu'il assigne les valeurs souhaitées à ces derniers
 $perso = new Personnages(['name' => 'Ange', 'health' => '200', 'power' => '200', 'weapon' => '', 'role_id' => '5']);
 //var_dump($perso);die;
 
  // var_dump(Personnages::getAllPersonnage());
  // var_dump(Roles::getAllRoles());
+
+
+ //trait
+ $perso->hello();
+
  ?>
 
 <!DOCTYPE html>

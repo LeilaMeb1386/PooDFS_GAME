@@ -7,6 +7,12 @@ Class Roles extends DataBase
 
   //getters
 
+  //methode abstraite
+  public function setid($id)
+  {
+    $this->id = $id;
+  }
+
   public function getRole()
   {
     return $this->role;

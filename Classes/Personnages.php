@@ -1,7 +1,11 @@
 <?php
 require_once('DataBase.php');
+require_once('Trait.php');
 Class Personnages extends DataBase
 {
+//trait
+ use MonTrait;
+
   protected $name;
   protected $health;
   protected $power;
@@ -33,6 +37,12 @@ Class Personnages extends DataBase
 
   //setters
 
+  //methode abstraite
+  public function setid($id)
+  {
+    $this->id = $id;
+  }
+
   public function setName($name)
     {
       $this->name = $name;
@@ -49,12 +59,18 @@ Class Personnages extends DataBase
 
   public function setWeapon($weapon)
     {
-      $this->weaper = $weapon;
+      $this->weapon = $weapon;
     }
   public function setRole_id($role_id)
     {
       $this->role_id = $role_id;
     }
+
+
+
+
+
+
 
  //constructeur
 
