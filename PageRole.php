@@ -3,22 +3,14 @@ function __autoload($classname) {
   $filename = "./Classes/". $classname .".php";
   require_once($filename);
 }
-
+require_once('./templates/head.html');
 $roles = Roles::getAllRoles();
 
  // var_dump(Personnages::getAllPersonnage());
  // var_dump(Roles::getAllRoles());
  ?>
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/style.css">
-    <title></title>
 
-  </head>
-  <body>
     <header>
       <ul>
         <li><a href="index.php">Voir la listes des Personnages</a></li>
@@ -87,5 +79,6 @@ $roles = Roles::getAllRoles();
             </form>
           </div>
 </maain>
-  </body>
-</html>
+<?php
+  require_once('./templates/footer.html');
+?>

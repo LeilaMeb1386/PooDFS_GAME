@@ -3,6 +3,7 @@ function __autoload($classname) {
   $filename = "./Classes/". $classname .".php";
   require_once($filename);
 }
+require_once('./templates/head.html');
 $personnages = Personnages::getAllPersonnage();
 $roles = Roles::getAllRoles();
 
@@ -21,14 +22,6 @@ $perso = new Personnages(['name' => 'Ange', 'health' => '200', 'power' => '200',
 
  ?>
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-      <link rel="stylesheet" href="./css/style.css">
-    <title></title>
-  </head>
-  <body>
     <header>
       <ul>
         <li><a href= "PageRole.php">Liste des roles</a></li>
@@ -151,5 +144,6 @@ $perso = new Personnages(['name' => 'Ange', 'health' => '200', 'power' => '200',
 
 
 </maain>
-  </body>
-</html>
+<?php
+  require_once('./templates/footer.html');
+?>
