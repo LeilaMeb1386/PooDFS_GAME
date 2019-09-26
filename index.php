@@ -54,7 +54,7 @@ $perso = new Personnages(['name' => 'Ange', 'health' => '200', 'power' => '200',
 </div>
 
 <div class="Insert">
-<h1>Inserer un nouveau joueur</h1>
+<h1>Nouveau personnage</h1>
    <form action="./actions/InsertPerso.php" method="post">
 
 

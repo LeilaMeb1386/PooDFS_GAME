@@ -26,7 +26,8 @@ INSERT INTO `Personnages` (`id`, `name`, `health`, `power`, `weapon`, `role_id`)
 (2,	'Merlin',	30,	40,	'épée enchantée',	1),
 (3,	'le ténébreux',	50,	60,	'flèche empoisonnée ',	2),
 (7,	'Leila',	200,	100,	'arc en ciel',	3),
-(9,	'Sara',	1004,	1011,	'épéeuil',	3);
+(9,	'Sara',	1004,	1011,	'épéeuil',	3),
+(11,	'philou',	300,	200,	'arme a feu',	6);
 
 DROP TABLE IF EXISTS `Roles`;
 CREATE TABLE `Roles` (
@@ -39,6 +40,8 @@ INSERT INTO `Roles` (`id`, `role`) VALUES
 (1,	'Mage'),
 (2,	'Warrior'),
 (3,	'Archer'),
-(6,	'Sorcier');
+(6,	'Sorcier'),
+(9,	'Soigneur'),
+(10,	'guérisseur');
 
--- 2019-09-25 14:57:23
+-- 2019-09-26 09:15:49

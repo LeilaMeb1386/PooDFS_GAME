@@ -40,3 +40,6 @@ a{
   font-size: 2em;
   text-align: center;
 }
+a:hover {
+  color: #010440; 
+}
